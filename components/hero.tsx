@@ -42,14 +42,18 @@ export default function Hero() {
           {/* Buttons */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link href="#projects">
-              <Button size="lg" className="group">
+              <Button size="lg" className="group cursor-pointer">
                 View Projects
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
 
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="lg">
+            <a
+              href="/vornsaran_cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="outline" size="lg" className="cursor-pointer">
                 <Download className="mr-2 h-5 w-5" />
                 Download Resume
               </Button>
@@ -66,6 +70,7 @@ export default function Hero() {
               "PostgreSQL",
               "Next.js",
               "PHP",
+              "GraphQL",
               "AWS",
             ].map((tech) => (
               <span

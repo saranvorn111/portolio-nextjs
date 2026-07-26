@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Menu } from "lucide-react";
+import { FiGithub } from "react-icons/fi";
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
@@ -56,13 +57,15 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <Button variant="outline" asChild>
             <a href="https://github.com/saranvorn111" target="_blank">
-              {/* <Github className="mr-2 h-4 w-4" /> */}
+              <FiGithub className="mr-2 h-4 w-4" />
               GitHub
             </a>
           </Button>
 
           <Button asChild>
-            <a href="/resume.pdf">Resume</a>
+            <a href="/vornsaran_cv.pdf" download>
+              Resume
+            </a>
           </Button>
         </div>
 

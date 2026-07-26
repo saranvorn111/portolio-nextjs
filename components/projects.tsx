@@ -1,6 +1,6 @@
-import Link from "next/link";
+"use client";
 
-import { JSX } from "react/jsx-runtime";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { FiGithub } from "react-icons/fi";
 
@@ -11,120 +11,281 @@ const projects = [
     title: "PhotoStad",
     subtitle: "Photography Portfolio Platform & Certificate Generator",
     description:
-      "A photography platform designed for studios to upload images, apply custom watermark logos, and generate certificates in bulk, improving efficiency and protecting digital assets.",
-    tech: ["Next.js", "Spring Boot", "MySQL", "Docker"],
+      "A photography platform that allows studios to upload images, apply custom watermark logos, and generate certificates in bulk. The system improves workflow efficiency and protects digital assets.",
+    tech: ["Next.js", "Java", "Spring framwork", "MySQL", "Docker"],
     live: "#",
     repo: "https://github.com/cstadservice/photostad-api",
   },
+
   {
     id: 2,
     year: "2023",
     title: "Developer Cambodia",
     subtitle: "Developer Community Platform",
     description:
-      "A modern developer platform that enables users to create technical articles, participate in global forums, rate content, receive rewards for quality contributions, and connect with the developer community.",
-    tech: ["Next.js", "Spring Boot", "Microservices", "PostgreSQL"],
+      "A developer community platform where users can publish technical articles, join discussions, rate content, receive rewards, and connect with other developers.",
+    tech: [
+      "Next.js",
+      "Spring Boot",
+      "Microservices",
+      "PostgreSQL",
+      "Mysql",
+      "MongoDB",
+    ],
     live: "#",
     repo: "https://github.com/orgs/Developers-Cambodia/repositories",
   },
+
   {
     id: 3,
     year: "2024",
     title: "Domnerka",
-    subtitle: "Workflow Platform",
+    subtitle: "Workflow Management Platform",
     description:
-      "A workflow management platform that digitalizes business processes, enabling users to complete tasks, submit forms, manage approvals, and delegate work efficiently through automated workflows.",
+      "A workflow platform that digitalizes business processes with task management, form submission, approval flows, delegation, and automated business processes.",
     tech: ["React", "TypeScript", "Spring Boot", "MySQL"],
     live: "#",
     repo: "https://github.com/saranvorn111",
   },
+
   {
     id: 4,
     year: "2026",
     title: "CMP",
     subtitle: "Content Management Platform",
     description:
-      "A centralized content management platform designed to ensure consistent publishing, efficient content governance, and trusted information delivery across ministries and public institutions.",
+      "A centralized content management system designed for consistent publishing, content governance, and trusted information delivery across public institutions.",
     tech: ["Next.js", "GraphQL", "MySQL"],
-    live: "#",
+    live: "https://cmp.gov.kh/en",
     repo: "https://github.com/saranvorn111",
   },
 ];
-export default function Projects(): JSX.Element {
+
+export default function Projects() {
   return (
-    <section id="projects" className="py-28">
-      <div className="container mx-auto max-w-5xl">
-        <div className="mb-20">
-          <p className="text-violet-500 font-semibold uppercase tracking-widest">
+    <section id="projects" className="py-20 sm:py-28">
+      <div className="container mx-auto px-4 sm:px-6">
+        {/* HEADER */}
+
+        <div className="mb-14 sm:mb-20">
+          <p
+            className="
+            text-sm
+            font-semibold
+            uppercase
+            tracking-[0.3em]
+            text-violet-400
+            "
+          >
             Portfolio
           </p>
 
-          <h2 className="mt-3 text-5xl font-bold">Selected Projects</h2>
+          <h2
+            className="
+            mt-3
+            text-3xl
+            sm:text-5xl
+            font-bold
+            text-white
+            "
+          >
+            Selected Projects
+          </h2>
 
-          <p className="mt-5 max-w-xl text-slate-400">
-            A collection of applications I have built using Java, Spring Boot,
-            Next.js and Microservices.
+          <p
+            className="
+            mt-5
+            max-w-2xl
+            text-slate-400
+            leading-7
+            "
+          >
+            A collection of applications I have developed using Java, Spring
+            Boot, Next.js, databases, and cloud technologies.
           </p>
         </div>
 
-        <div className="space-y-20">
+        {/* PROJECT LIST */}
+
+        <div className="space-y-8">
           {projects.map((project, index) => (
-            <div key={project.id} className="border-t border-slate-800 pt-10">
-              <div className="grid lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-2">
-                  <span className="text-5xl font-bold text-slate-700">
+            <article
+              key={project.id}
+              className="
+                group
+                rounded-3xl
+                border
+                border-slate-800
+                bg-slate-900/40
+                p-6
+                sm:p-8
+                transition
+                hover:border-violet-500/40
+                "
+            >
+              <div
+                className="
+                  flex
+                  flex-col
+                  gap-6
+                  md:flex-row
+                  "
+              >
+                {/* NUMBER */}
+
+                <div
+                  className="
+                    shrink-0
+                    "
+                >
+                  <span
+                    className="
+                      text-4xl
+                      sm:text-5xl
+                      font-bold
+                      text-slate-700
+                      "
+                  >
                     0{index + 1}
                   </span>
                 </div>
 
-                <div className="lg:col-span-10 space-y-6">
-                  {/* Header */}
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                {/* CONTENT */}
+
+                <div className="flex-1">
+                  <div
+                    className="
+                      flex
+                      flex-col
+                      gap-3
+                      sm:flex-row
+                      sm:items-start
+                      sm:justify-between
+                      "
+                  >
                     <div>
-                      <p className="text-sm font-medium uppercase tracking-[0.2em] text-violet-400">
+                      <p
+                        className="
+                          text-xs
+                          uppercase
+                          tracking-[0.2em]
+                          text-violet-400
+                          "
+                      >
                         {project.subtitle}
                       </p>
 
-                      <h3 className="mt-2 text-3xl font-bold tracking-tight text-white">
+                      <h3
+                        className="
+                          mt-2
+                          text-2xl
+                          sm:text-3xl
+                          font-bold
+                          text-white
+                          "
+                      >
                         {project.title}
                       </h3>
                     </div>
 
-                    <span className="self-start rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1 text-sm font-medium text-violet-300">
+                    <span
+                      className="
+                        w-fit
+                        rounded-full
+                        border
+                        border-violet-500/30
+                        bg-violet-500/10
+                        px-4
+                        py-1
+                        text-sm
+                        text-violet-300
+                        "
+                    >
                       {project.year}
                     </span>
                   </div>
 
-                  {/* Description */}
-                  <p className="max-w-3xl text-base leading-8 text-slate-400">
+                  <p
+                    className="
+                      mt-5
+                      leading-7
+                      text-slate-400
+                      "
+                  >
                     {project.description}
                   </p>
 
-                  {/* Technologies */}
-                  <div>
-                    <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-500">
-                      Tech Stack
+                  {/* TECH */}
+
+                  <div className="mt-6">
+                    <p
+                      className="
+                        mb-3
+                        text-xs
+                        font-semibold
+                        uppercase
+                        tracking-widest
+                        text-slate-500
+                        "
+                    >
+                      Technologies
                     </p>
 
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech) => (
+                    <div
+                      className="
+                        flex
+                        flex-wrap
+                        gap-2
+                        "
+                    >
+                      {project.tech.map((item) => (
                         <span
-                          key={tech}
-                          className="rounded-full border border-slate-700 bg-slate-900 px-4 py-2 text-sm text-slate-300 transition hover:border-violet-500 hover:text-violet-300"
+                          key={item}
+                          className="
+                              rounded-full
+                              border
+                              border-slate-700
+                              bg-slate-950
+                              px-3
+                              py-1.5
+                              text-xs
+                              sm:text-sm
+                              text-slate-300
+                              "
                         >
-                          {tech}
+                          {item}
                         </span>
                       ))}
                     </div>
                   </div>
 
-                  {/* Actions */}
-                  <div className="flex flex-wrap items-center gap-6 pt-2">
+                  {/* BUTTONS */}
+
+                  <div
+                    className="
+                      mt-8
+                      flex
+                      flex-col
+                      gap-3
+                      sm:flex-row
+                      "
+                  >
                     <Link
                       href={project.live}
                       target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-lg bg-violet-600 px-5 py-3 font-medium text-white transition hover:bg-violet-500"
+                      className="
+                        inline-flex
+                        items-center
+                        justify-center
+                        gap-2
+                        rounded-xl
+                        bg-violet-600
+                        px-5
+                        py-3
+                        font-medium
+                        text-white
+                        hover:bg-violet-500
+                        "
                     >
                       Live Demo
                       <ArrowUpRight size={18} />
@@ -133,16 +294,27 @@ export default function Projects(): JSX.Element {
                     <Link
                       href={project.repo}
                       target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-lg border border-slate-700 px-5 py-3 font-medium text-slate-300 transition hover:border-violet-500 hover:text-violet-300"
+                      className="
+                        inline-flex
+                        items-center
+                        justify-center
+                        gap-2
+                        rounded-xl
+                        border
+                        border-slate-700
+                        px-5
+                        py-3
+                        text-slate-300
+                        hover:border-violet-500
+                        "
                     >
                       <FiGithub size={18} />
-                      View Source
+                      Source Code
                     </Link>
                   </div>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
