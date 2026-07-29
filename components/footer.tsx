@@ -51,6 +51,10 @@ export default function Footer() {
                   href: "#experience",
                 },
                 {
+                  name: "Skills",
+                  href: "#skills",
+                },
+                {
                   name: "Projects",
                   href: "#projects",
                 },

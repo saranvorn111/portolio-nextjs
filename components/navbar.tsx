@@ -1,103 +1,149 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Menu, ArrowUpRight, FileText } from "lucide-react";
 import { FiGithub } from "react-icons/fi";
+import { motion } from "framer-motion";
 
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  {
-    label: "About",
-    href: "#about",
-  },
-  {
-    label: "Skills",
-    href: "#skills",
-  },
-  {
-    label: "Experience",
-    href: "#experience",
-  },
-  {
-    label: "Projects",
-    href: "#projects",
-  },
-  {
-    label: "Contact",
-    href: "#contact",
-  },
+  { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <header className="fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
       <div className="container mx-auto flex h-16 items-center justify-between px-6">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold tracking-tight">
+        <Link
+          href="/"
+          className="text-xl font-bold text-white transition hover:text-violet-400"
+        >
           Vorn Saran
         </Link>
 
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="text-sm font-medium text-muted-foreground transition hover:text-foreground"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+        {/* Desktop */}
+        <div className="hidden items-center gap-10 md:flex">
+          <nav className="flex items-center gap-8">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-sm font-medium text-slate-300 transition hover:text-white"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
 
-        {/* Desktop Actions */}
-        <div className="hidden md:flex items-center gap-3">
-          <Button variant="outline" asChild>
-            <a href="https://github.com/saranvorn111" target="_blank">
-              <FiGithub className="mr-2 h-4 w-4" />
-              GitHub
-            </a>
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button variant="outline" asChild>
+              <a
+                href="https://github.com/saranvorn111"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FiGithub className="mr-2 h-4 w-4" />
+                GitHub
+              </a>
+            </Button>
 
-          <Button asChild>
-            <a href="/vornsaran_cv.pdf" download>
-              Resume
-            </a>
-          </Button>
+            <Button asChild>
+              <a href="/vornsaran_cv.pdf" download>
+                Resume
+              </a>
+            </Button>
+          </div>
         </div>
 
-        {/* Mobile Menu */}
-        <Sheet>
+        {/* Mobile */}
+        <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden">
-              <Menu />
+            <Button
+              size="icon"
+              variant="ghost"
+              className="text-white md:hidden"
+            >
+              <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
 
-          <SheetContent side="right">
-            <div className="mt-10 flex flex-col gap-6">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="text-lg font-medium"
+          <SheetContent
+            side="right"
+            className="border-l border-slate-800 bg-slate-950 p-0"
+          >
+            <SheetHeader className="border-b border-slate-800 px-6 py-6">
+              <SheetTitle className="text-left text-xl text-white">
+                Vorn Saran
+              </SheetTitle>
+            </SheetHeader>
+
+            <div className="flex h-full flex-col justify-between px-6 py-8">
+              {/* Navigation */}
+              <nav className="space-y-3">
+                {navItems.map((item, index) => (
+                  <motion.a
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                      delay: index * 0.08,
+                    }}
+                    className="group flex items-center justify-between rounded-xl px-4 py-4 text-lg font-medium text-slate-300 transition hover:bg-slate-900 hover:text-white"
+                  >
+                    {item.label}
+
+                    <ArrowUpRight className="h-5 w-5 opacity-0 transition group-hover:opacity-100" />
+                  </motion.a>
+                ))}
+              </nav>
+
+              {/* Bottom Buttons */}
+              <div className="space-y-3">
+                <Button
+                  className="w-full justify-center"
+                  variant="outline"
+                  asChild
                 >
-                  {item.label}
-                </a>
-              ))}
+                  <a
+                    href="https://github.com/saranvorn111"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FiGithub className="mr-2 h-5 w-5" />
+                    GitHub
+                  </a>
+                </Button>
 
-              <Button variant="outline" asChild>
-                <a href="https://github.com/saranvorn111" target="_blank">
-                  GitHub
-                </a>
-              </Button>
+                <Button className="w-full justify-center" asChild>
+                  <a href="/vornsaran_cv.pdf" download>
+                    <FileText className="mr-2 h-5 w-5" />
+                    Download Resume
+                  </a>
+                </Button>
 
-              <Button asChild>
-                <a href="/resume.pdf">Resume</a>
-              </Button>
+                <p className="pt-6 text-center text-xs text-slate-500">
+                  © 2026 Vorn Saran
+                </p>
+              </div>
             </div>
           </SheetContent>
         </Sheet>
