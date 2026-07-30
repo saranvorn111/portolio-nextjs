@@ -98,7 +98,7 @@ export default function Contact() {
               />
 
               <SocialButton
-                href="https://linkedin.com/in/vornsaran"
+                href="https://www.linkedin.com/in/vorn-saran-911485300/"
                 icon={<FiLinkedin size={20} />}
                 text="LinkedIn"
               />
