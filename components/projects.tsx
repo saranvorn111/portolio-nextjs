@@ -8,18 +8,40 @@ import { FiGithub } from "react-icons/fi";
 const projects = [
   {
     id: 1,
-    year: "2023",
-    title: "PhotoStad",
-    subtitle: "Photography Portfolio Platform & Certificate Generator",
+    year: "2026",
+    title: "CMP",
+    subtitle: "Content Management Platform",
     description:
-      "A photography platform that allows studios to upload images, apply custom watermark logos, and generate certificates in bulk.",
-    tech: ["Next.js", "Java", "Spring Framework", "MySQL", "Docker"],
+      "A centralized content management system designed for publishing, governance, and trusted information delivery.",
+    tech: ["Next.js", "GraphQL", "MySQL"],
+    live: "https://cmp.gov.kh/en",
+    repo: "https://github.com/saranvorn111",
+  },
+  {
+    id: 2,
+    year: "2026",
+    title: "CTM",
+    subtitle: "Chaktomuk Digital Platform",
+    description:
+      "Chaktomuk is a digital workspace developed by the Ministry of Post and Telecommunications (MPTC) to enhance government efficiency by digitalizing workflows, fostering collaboration, and enabling more effective operations.",
+    tech: ["Java", "Spring Boot", "MySQL", "Microservices", "Next.js"],
+    live: "https://chaktomuk.gov.kh/en",
+    repo: "https://github.com/saranvorn111",
+  },
+  {
+    id: 3,
+    year: "2024",
+    title: "Domnerka",
+    subtitle: "Workflow Management Platform",
+    description:
+      "A workflow platform that digitalizes business processes with task management, approval flows, delegation, and automation.",
+    tech: ["React", "TypeScript", "Spring Boot", "MySQL"],
     live: "#",
-    repo: "https://github.com/cstadservice/photostad-api",
+    repo: "https://github.com/saranvorn111",
   },
 
   {
-    id: 2,
+    id: 4,
     year: "2023",
     title: "Developer Cambodia",
     subtitle: "Developer Community Platform",
@@ -36,29 +58,16 @@ const projects = [
     live: "#",
     repo: "https://github.com/orgs/Developers-Cambodia/repositories",
   },
-
   {
-    id: 3,
-    year: "2024",
-    title: "Domnerka",
-    subtitle: "Workflow Management Platform",
+    id: 5,
+    year: "2023",
+    title: "PhotoStad",
+    subtitle: "Photography Portfolio Platform & Certificate Generator",
     description:
-      "A workflow platform that digitalizes business processes with task management, approval flows, delegation, and automation.",
-    tech: ["React", "TypeScript", "Spring Boot", "MySQL"],
+      "A photography platform that allows studios to upload images, apply custom watermark logos, and generate certificates in bulk.",
+    tech: ["Next.js", "Java", "Spring Framework", "MySQL", "Docker"],
     live: "#",
-    repo: "https://github.com/saranvorn111",
-  },
-
-  {
-    id: 4,
-    year: "2026",
-    title: "CMP",
-    subtitle: "Content Management Platform",
-    description:
-      "A centralized content management system designed for publishing, governance, and trusted information delivery.",
-    tech: ["Next.js", "GraphQL", "MySQL"],
-    live: "https://cmp.gov.kh/en",
-    repo: "https://github.com/saranvorn111",
+    repo: "https://github.com/cstadservice/photostad-api",
   },
 ];
 
@@ -105,7 +114,6 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        {/* PROJECTS */}
         <motion.div
           variants={containerVariants}
           initial="hidden"

@@ -101,7 +101,7 @@ export default function Footer() {
               </Link>
 
               <Link
-                href="https://www.linkedin.com/in/vornsaran"
+                href="https://www.linkedin.com/in/vorn-saran-911485300/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="

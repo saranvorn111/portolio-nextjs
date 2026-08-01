@@ -15,7 +15,7 @@ const techStack = [
   "Next.js",
   "PHP",
   "GraphQL",
-  "AWS",
+  "REST API",
 ];
 
 const containerVariants: Variants = {
@@ -61,16 +61,14 @@ export default function Hero() {
         animate="show"
       >
         <div className="mx-auto max-w-4xl text-center">
-          {/* Badge */}
           <motion.div
             variants={itemVariants}
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-5 py-2 text-sm text-violet-300 backdrop-blur"
           >
             <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
-            Available for Full-time Opportunities
+            Available for Part-time Opportunities
           </motion.div>
 
-          {/* Title */}
           <motion.h1
             variants={itemVariants}
             className="text-5xl font-bold leading-tight text-white md:text-6xl lg:text-7xl"
