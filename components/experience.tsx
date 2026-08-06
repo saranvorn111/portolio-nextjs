@@ -24,15 +24,18 @@ const experiences = [
       "Spring Boot",
       "REST API",
       "Microservices",
-      "Docker",
       "GraphQL",
+      "Next.js",
+      "TypeScript",
+      "Database",
+      "Docker",
     ],
   },
   {
     icon: BookOpen,
     type: "Teaching",
     title: "Part-time Instructor",
-    company: "University of Cambodia",
+    company: "The University of Cambodia",
     link: "https://web.facebook.com/universityofcambodia",
     period: "2025 - Present",
     description:
@@ -42,7 +45,7 @@ const experiences = [
       "Java",
       "Backend Development",
       "Database",
-      "Software Engineering",
+      "Fundamentals of Computer",
     ],
   },
   {
@@ -54,7 +57,23 @@ const experiences = [
     period: "2024 - 2025",
     description:
       "Worked on backend services, API development, database integration, and enterprise application solutions.",
-    skills: ["Backend API", "Database", "Java", "System Design"],
+    skills: ["Backend API", "Database", "Java", "Spring Boot", "System Design"],
+  },
+  {
+    icon: GraduationCap,
+    type: "Education",
+    title: "Bachelor Degree",
+    company: "University of Cambodia",
+    link: "https://www.uc.edu.kh/",
+    period: "2020 - 2024",
+    description:
+      "Studied Information Technology fundamentals, software development concepts, algorithms, and databases.",
+    skills: [
+      "Information Technology",
+      "Programming",
+      "Software Development",
+      "Algorithms",
+    ],
   },
   {
     icon: Code2,
@@ -65,19 +84,15 @@ const experiences = [
     period: "2023 - 2024",
     description:
       "Completed intensive software development training covering backend development and software engineering.",
-    skills: ["Java", "Web Development", "Database", "Software Engineering"],
+    skills: [
+      "Java",
+      "Spring Boot",
+      "Web Development",
+      "Database",
+      "Software Engineering",
+    ],
   },
-  {
-    icon: GraduationCap,
-    type: "Education",
-    title: "Bachelor Degree",
-    company: "University of Cambodia",
-    link: "https://www.uc.edu.kh/",
-    period: "2020 - 2024",
-    description:
-      "Studied computer science fundamentals, software development concepts, algorithms, and databases.",
-    skills: ["Computer Science", "Programming", "Software Development"],
-  },
+
   {
     icon: Brain,
     type: "Short Course",

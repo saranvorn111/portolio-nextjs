@@ -72,8 +72,8 @@ const skillCategories = [
         description: "NoSQL document database",
       },
       {
-        name: "Redis",
-        description: "Caching and performance",
+        name: "SQL Server",
+        description: "Database design and querying",
       },
     ],
   },

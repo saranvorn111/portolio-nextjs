@@ -7,15 +7,16 @@ import { motion, type Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 const techStack = [
-  "Spring Boot",
   "Java",
+  "Spring Boot",
+  "REST API",
   "Microservices",
   "Docker",
   "PostgreSQL",
   "Next.js",
+  "TypeScript",
   "PHP",
   "GraphQL",
-  "REST API",
 ];
 
 const containerVariants: Variants = {
@@ -87,7 +88,6 @@ export default function Hero() {
             Full Stack Developer
           </motion.h2>
 
-          {/* Description */}
           <motion.p
             variants={itemVariants}
             className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-slate-400"
@@ -98,7 +98,6 @@ export default function Hero() {
             technologies.
           </motion.p>
 
-          {/* Buttons */}
           <motion.div
             variants={itemVariants}
             className="mt-10 flex flex-wrap justify-center gap-4"
@@ -108,7 +107,7 @@ export default function Hero() {
               whileTap={{ scale: 0.96 }}
             >
               <Link href="#projects">
-                <Button size="lg" className="group">
+                <Button size="lg" className="group cursor-pointer">
                   View Projects
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
                 </Button>
@@ -124,8 +123,12 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button size="lg" variant="outline">
-                  <Download className="mr-2 h-5 w-5" />
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="group cursor-pointer"
+                >
+                  <Download className="mr-2 h-5 w-5 " />
                   Download Resume
                 </Button>
               </a>
