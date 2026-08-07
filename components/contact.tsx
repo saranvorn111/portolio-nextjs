@@ -14,13 +14,7 @@ export default function Contact() {
       className="relative overflow-hidden py-28"
       aria-labelledby="contact-heading"
     >
-      {/* Background */}
-      <div className="absolute left-1/2 top-0 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-violet-600/20 blur-[150px]" />
-
-      <div className="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-cyan-500/10 blur-[120px]" />
-
       <div className="container relative mx-auto max-w-5xl px-4">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +39,7 @@ export default function Contact() {
         </motion.div>
 
         <div className="grid gap-10 lg:grid-cols-2">
-          {/* Left */}
+  
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -89,7 +83,6 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            {/* Social */}
             <div className="flex gap-4">
               <SocialButton
                 href="https://github.com/saranvorn111"
@@ -105,7 +98,6 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Right CTA */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}

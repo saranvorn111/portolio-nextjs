@@ -8,7 +8,7 @@ import {
   Server,
   ShieldCheck,
 } from "lucide-react";
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -60,21 +60,6 @@ const leftVariant = {
   },
 };
 
-const rightVariant = {
-  hidden: {
-    opacity: 0,
-    x: 80,
-  },
-  show: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  },
-};
-
 const staggerContainer = {
   hidden: {},
   show: {
@@ -100,10 +85,10 @@ const itemVariant = {
 
 export default function About() {
   return (
-    <section id="about" className="py-20 sm:py-28">
-      <div className="container mx-auto px-4">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-          {/* LEFT SIDE */}
+    <section id="about" className="py-16 sm:py-20 lg:py-28">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[0.6fr_0.4fr] items-center">
+          {/* Left Content */}
           <motion.div
             variants={leftVariant}
             initial="hidden"
@@ -119,7 +104,7 @@ export default function About() {
                 className="mb-4 h-1 rounded-full bg-violet-500"
               />
 
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              <h2 className="text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
                 About Me
               </h2>
             </div>
@@ -138,7 +123,7 @@ export default function About() {
               maintain and extend.
             </p>
 
-            {/* FEATURES */}
+            {/* Strengths */}
             <motion.div
               variants={staggerContainer}
               initial="hidden"
@@ -158,32 +143,25 @@ export default function About() {
                       borderColor: "#8b5cf6",
                       boxShadow: "0 0 20px rgba(139,92,246,0.15)",
                     }}
-                    className="
-                      flex
-                      gap-3
-                      rounded-xl
-                      border
-                      border-slate-800
-                      bg-slate-900/40
-                      p-4
-                      transition-all
-                    "
+                    className="flex gap-3 rounded-xl border border-slate-800 bg-slate-900/40 p-4 transition-all"
                   >
                     <Icon className="mt-1 h-5 w-5 shrink-0 text-violet-400" />
 
-                    <span className="text-sm text-slate-300">{item.text}</span>
+                    <span className="text-sm leading-relaxed text-slate-300">
+                      {item.text}
+                    </span>
                   </motion.div>
                 );
               })}
             </motion.div>
 
-            {/* BUTTONS */}
+            {/* Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
               viewport={{ once: true }}
-              className="mt-8 flex flex-col gap-3 sm:flex-row"
+              className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
             >
               <Button asChild className="w-full cursor-pointer sm:w-auto">
                 <Link href="#projects">View Projects</Link>
@@ -199,7 +177,7 @@ export default function About() {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT SIDE */}
+          {/* Right Card */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -208,7 +186,7 @@ export default function About() {
           >
             <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
               <Card className="border-slate-800 bg-slate-950/50 backdrop-blur transition-shadow hover:shadow-lg hover:shadow-violet-500/10">
-                <CardContent className="p-6 sm:p-8">
+                <CardContent className="p-5 sm:p-6 lg:p-8">
                   {/* Header */}
                   <div className="mb-6 flex items-center gap-3">
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/10">
@@ -219,6 +197,7 @@ export default function About() {
                       <h3 className="text-lg font-semibold">
                         Developer Profile
                       </h3>
+
                       <p className="text-sm text-slate-400">
                         Backend Developer
                       </p>
@@ -227,21 +206,24 @@ export default function About() {
 
                   {/* Stats */}
                   <div className="mb-8 grid grid-cols-3 gap-4">
-                    <div>
-                      <p className="text-2xl font-bold">5+</p>
+                    <div className="text-center">
+                      <p className="text-xl font-bold sm:text-2xl">5+</p>
+
                       <span className="text-xs text-slate-400">Projects</span>
                     </div>
 
-                    <div>
-                      <p className="text-2xl font-bold">10+</p>
+                    <div className="text-center">
+                      <p className="text-xl font-bold sm:text-2xl">10+</p>
+
                       <span className="text-xs text-slate-400">
                         Technologies
                       </span>
                     </div>
 
-                    <div>
-                      <p className="text-2xl font-bold">2</p>
-                      <span className="text-xs text-slate-400">Company</span>
+                    <div className="text-center">
+                      <p className="text-xl font-bold sm:text-2xl">2</p>
+
+                      <span className="text-xs text-slate-400">Companies</span>
                     </div>
                   </div>
 
@@ -250,7 +232,7 @@ export default function About() {
                     Technology Stack
                   </h4>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     {skills.map((skill) => (
                       <motion.div
                         key={skill}
@@ -263,7 +245,7 @@ export default function About() {
                   </div>
 
                   {/* Highlights */}
-                  <div className="mt-8 rounded-xl border border-slate-800 p-4">
+                  <div className="mt-8 space-y-3 rounded-xl border border-slate-800 p-4">
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="h-5 w-5 text-green-400" />
                       <span className="text-sm">
@@ -271,7 +253,7 @@ export default function About() {
                       </span>
                     </div>
 
-                    <div className="mt-3 flex items-center gap-2">
+                    <div className="flex items-center gap-2">
                       <CheckCircle2 className="h-5 w-5 text-green-400" />
                       <span className="text-sm">
                         Building scalable backend systems

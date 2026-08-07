@@ -30,7 +30,6 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
       <div className="container mx-auto flex h-16 items-center justify-between px-6">
-        {/* Logo */}
         <Link
           href="/"
           className="text-xl font-bold text-white transition hover:text-violet-400"
@@ -38,7 +37,6 @@ export default function Navbar() {
           Vorn Saran
         </Link>
 
-        {/* Desktop */}
         <div className="hidden items-center gap-10 md:flex">
           <nav className="flex items-center gap-8">
             {navItems.map((item) => (
@@ -65,14 +63,17 @@ export default function Navbar() {
             </Button>
 
             <Button asChild>
-              <a href="/vornsaran_cv.pdf" download>
+              <a
+                href="/vornsaran_cv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Resume
               </a>
             </Button>
           </div>
         </div>
 
-        {/* Mobile */}
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <Button
@@ -95,7 +96,6 @@ export default function Navbar() {
             </SheetHeader>
 
             <div className="flex h-full flex-col justify-between px-6 py-8">
-              {/* Navigation */}
               <nav className="space-y-3">
                 {navItems.map((item, index) => (
                   <motion.a
@@ -116,7 +116,6 @@ export default function Navbar() {
                 ))}
               </nav>
 
-              {/* Bottom Buttons */}
               <div className="space-y-3">
                 <Button
                   className="w-full justify-center"

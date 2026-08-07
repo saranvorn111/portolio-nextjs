@@ -48,13 +48,7 @@ const itemVariants: Variants = {
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-slate-950">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#7c3aed20,transparent_35%),radial-gradient(circle_at_bottom_left,#ec489920,transparent_35%)]" />
-
-      {/* Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:48px_48px]" />
-
+    <section className="relative flex min-h-screen items-start justify-center overflow-hidden bg-slate-950 py-24 md:items-center">
       <motion.div
         className="relative container mx-auto px-6"
         variants={containerVariants}
@@ -64,23 +58,25 @@ export default function Hero() {
         <div className="mx-auto max-w-4xl text-center">
           <motion.div
             variants={itemVariants}
-            className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-5 py-2 text-sm text-violet-300 backdrop-blur"
+            className="mb-6 mx-auto flex max-w-[90vw] items-center justify-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-2 text-center text-xs text-violet-300 backdrop-blur sm:mb-8 sm:w-fit sm:text-sm"
           >
-            <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
-            Available for Part-time Opportunities
+            <span className="h-2 w-2 shrink-0 rounded-full bg-green-400 animate-pulse" />
+
+            <span className="wrap-break-word">
+              Available for Part-time Opportunities
+            </span>
           </motion.div>
 
           <motion.h1
             variants={itemVariants}
             className="text-5xl font-bold leading-tight text-white md:text-6xl lg:text-7xl"
           >
-            Hi, I'm{" "}
-            <span className="bg-gradient-to-r from-violet-400 to-pink-500 bg-clip-text text-transparent">
+            Hi, I&apos;m{" "}
+            <span className="bg-linear-to-r from-violet-400 to-pink-500 bg-clip-text text-transparent">
               Vorn Saran
             </span>
           </motion.h1>
 
-          {/* Subtitle */}
           <motion.h2
             variants={itemVariants}
             className="mt-6 text-2xl font-semibold text-slate-300 md:text-3xl"
@@ -122,6 +118,7 @@ export default function Hero() {
                 href="/vornsaran_cv.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                download
               >
                 <Button
                   size="lg"
@@ -135,7 +132,6 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Tech Stack */}
           <motion.div
             variants={itemVariants}
             className="mt-12 flex flex-wrap justify-center gap-3"
@@ -154,7 +150,6 @@ export default function Hero() {
             ))}
           </motion.div>
 
-          {/* Stats */}
           <motion.div
             variants={itemVariants}
             className="mx-auto mt-16 grid max-w-2xl grid-cols-3 gap-8 border-t border-slate-800 pt-8"
