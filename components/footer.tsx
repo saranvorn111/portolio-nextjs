@@ -1,34 +1,63 @@
 "use client";
 
 import Link from "next/link";
-import { FiGithub, FiLinkedin, FiFacebook } from "react-icons/fi";
+import { ArrowUp, Mail } from "lucide-react";
+import { FiFacebook, FiGithub, FiLinkedin } from "react-icons/fi";
+
+const navigation = [
+  { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
+
+const resources = [
+  { name: "Download CV", href: "/vornsaran_cv.pdf", external: true },
+  { name: "Email Me", href: "mailto:Saranvorn529@gmail.com" },
+];
+
+const socials = [
+  {
+    name: "GitHub",
+    href: "https://github.com/saranvorn111",
+    icon: FiGithub,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/vorn-saran-911485300/",
+    icon: FiLinkedin,
+  },
+  {
+    name: "Facebook",
+    href: "https://web.facebook.com/vorn.saran.14",
+    icon: FiFacebook,
+  },
+];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-800 bg-slate-950/50 py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid gap-10 md:grid-cols-3">
+    <footer className="relative border-t border-white/5 bg-slate-950/60">
+      {/* Top accent line */}
+      <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-violet-500/50 to-transparent" />
+
+      <div className="container mx-auto px-4 py-14 sm:px-6">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
           {/* Brand */}
-          <div>
-            <div className="flex items-center gap-4">
-              <div
-                className="
-                  flex h-12 w-12 items-center justify-center
-                  rounded-xl
-                  bg-gradient-to-tr from-violet-500 to-pink-500
-                  text-lg font-bold text-white
-                  shadow-lg shadow-violet-500/20
-                "
-              >
+          <div className="col-span-2 sm:col-span-3 lg:col-span-1">
+            <Link href="#" className="inline-flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-tr from-violet-600 to-pink-600 text-sm font-bold text-pure-white shadow-lg shadow-violet-600/20">
                 VS
-              </div>
-
-              <div>
-                <h3 className="text-lg font-bold text-white">Vorn Saran</h3>
-
-                <p className="text-sm text-slate-400">Backend Developer</p>
-              </div>
-            </div>
+              </span>
+              <span>
+                <span className="block font-semibold text-white">
+                  Vorn Saran
+                </span>
+                <span className="block text-xs text-slate-500">
+                  Backend Developer
+                </span>
+              </span>
+            </Link>
 
             <p className="mt-5 max-w-sm text-sm leading-6 text-slate-400">
               Building scalable backend systems with Spring Boot, Microservices,
@@ -38,121 +67,93 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="mb-4 font-semibold text-white">Navigation</h4>
-
-            <nav className="flex flex-col gap-3">
-              {[
-                {
-                  name: "About",
-                  href: "#about",
-                },
-                {
-                  name: "Experience",
-                  href: "#experience",
-                },
-                {
-                  name: "Skills",
-                  href: "#skills",
-                },
-                {
-                  name: "Projects",
-                  href: "#projects",
-                },
-                {
-                  name: "Contact",
-                  href: "#contact",
-                },
-              ].map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="
-                    text-sm text-slate-400
-                    transition
-                    hover:text-violet-400
-                  "
-                >
-                  {item.name}
-                </Link>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
+              Navigation
+            </h4>
+            <ul className="mt-4 space-y-3">
+              {navigation.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-slate-400 transition-colors hover:text-white"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
               ))}
-            </nav>
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
+              Resources
+            </h4>
+            <ul className="mt-4 space-y-3">
+              {resources.map((item) => (
+                <li key={item.name}>
+                  <a
+                    href={item.href}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noopener noreferrer" : undefined}
+                    className="text-sm text-slate-400 transition-colors hover:text-white"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Social */}
-          <div>
-            <h4 className="mb-4 font-semibold text-white">Connect</h4>
-
-            <div className="flex gap-3">
-              <Link
-                href="https://github.com/saranvorn111"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  flex h-11 w-11 items-center justify-center
-                  rounded-xl
-                  border border-slate-800
-                  text-slate-400
-                  transition
-                  hover:border-violet-500
-                  hover:text-violet-400
-                "
-              >
-                <FiGithub size={20} />
-              </Link>
-
-              <Link
-                href="https://www.linkedin.com/in/vorn-saran-911485300/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  flex h-11 w-11 items-center justify-center
-                  rounded-xl
-                  border border-slate-800
-                  text-slate-400
-                  transition
-                  hover:border-violet-500
-                  hover:text-violet-400
-                "
-              >
-                <FiLinkedin size={20} />
-              </Link>
-
-              <Link
-                href="https://web.facebook.com/vorn.saran.14"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  flex h-11 w-11 items-center justify-center
-                  rounded-xl
-                  border border-slate-800
-                  text-slate-400
-                  transition
-                  hover:border-violet-500
-                  hover:text-violet-400
-                "
-              >
-                <FiFacebook size={20} />
-              </Link>
+          <div className="col-span-2 sm:col-span-1">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
+              Connect
+            </h4>
+            <div className="mt-4 flex gap-2">
+              {socials.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <Link
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-slate-400 transition-colors hover:border-violet-500/60 hover:text-white"
+                  >
+                    <Icon size={18} />
+                  </Link>
+                );
+              })}
             </div>
 
-            <p className="mt-5 text-sm text-slate-400">
-              Let&apos;s connect and build something meaningful.
-            </p>
+            <a
+              href="mailto:Saranvorn529@gmail.com"
+              className="mt-4 inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
+            >
+              <Mail size={14} />
+              Saranvorn529@gmail.com
+            </a>
           </div>
         </div>
 
         {/* Bottom */}
-        <div
-          className="
-            mt-12
-            border-t border-slate-800
-            pt-6
-            text-center
-            text-sm
-            text-slate-500
-          "
-        >
-          © {new Date().getFullYear()} Vorn Saran. All rights reserved.
+        <div className="mt-12 flex flex-col-reverse items-center justify-between gap-4 border-t border-white/5 pt-6 sm:flex-row">
+          <p className="text-xs text-slate-500">
+            © {new Date().getFullYear()} Vorn Saran. All rights reserved.
+          </p>
+
+          <Link
+            href="#"
+            className="group inline-flex items-center gap-2 text-xs text-slate-500 transition-colors hover:text-white"
+          >
+            Back to top
+            <ArrowUp
+              size={14}
+              className="transition-transform group-hover:-translate-y-0.5"
+            />
+          </Link>
         </div>
       </div>
     </footer>

@@ -43,7 +43,7 @@ export default function ScrollToTop() {
         justify-center
         rounded-full
         bg-violet-600
-        text-white
+        text-pure-white
         shadow-lg
         transition
         hover:bg-violet-500

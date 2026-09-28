@@ -1,13 +1,117 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap");
 @import "tailwindcss";
 
+/* Theme is driven by <html data-theme="dark|light"> (see app/layout.tsx) */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
+
+/* Colors that never change between themes (e.g. text on gradient badges) */
+@theme {
+  --color-pure-white: #ffffff;
+  --color-ink: #020617;
+}
+
+/* shadcn/ui tokens */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+}
+
 :root {
   --bg: #050816;
-  --muted: #94a3b8;
-  --card-bg: rgba(255, 255, 255, 0.03);
+  --text: #e6edf3;
+  --glow-1: rgba(124, 58, 237, 0.18);
+  --glow-2: rgba(236, 72, 153, 0.12);
   --glass-bg: rgba(255, 255, 255, 0.05);
   --accent-start: #7c3aed;
   --accent-end: #ec4899;
+
+  --background: #050816;
+  --foreground: #e6edf3;
+  --primary: #7c3aed;
+  --primary-foreground: #ffffff;
+  --secondary: #1e293b;
+  --secondary-foreground: #e2e8f0;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #1e293b;
+  --accent-foreground: #f8fafc;
+  --card: #0f172a;
+  --card-foreground: #e6edf3;
+  --popover: #0f172a;
+  --popover-foreground: #e6edf3;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #8b5cf6;
+  --destructive: #ef4444;
+
+  color-scheme: dark;
+}
+
+/*
+ * Light theme.
+ * Components are written with dark-first slate/white classes, so light mode
+ * remaps those palette variables instead of adding `light:` to every class.
+ */
+html[data-theme="light"] {
+  --bg: #f8fafc;
+  --text: #0f172a;
+  --glow-1: rgba(124, 58, 237, 0.1);
+  --glow-2: rgba(236, 72, 153, 0.07);
+  --glass-bg: rgba(15, 23, 42, 0.04);
+
+  --color-white: #0f172a;
+  --color-slate-50: #020617;
+  --color-slate-100: #0f172a;
+  --color-slate-200: #1e293b;
+  --color-slate-300: #334155;
+  --color-slate-400: #475569;
+  --color-slate-500: #64748b;
+  --color-slate-600: #94a3b8;
+  --color-slate-700: #cbd5e1;
+  --color-slate-800: #e2e8f0;
+  --color-slate-900: #f1f5f9;
+  --color-slate-950: #ffffff;
+
+  --color-violet-200: #5b21b6;
+  --color-violet-300: #6d28d9;
+  --color-violet-400: #7c3aed;
+  --color-pink-300: #be185d;
+  --color-emerald-300: #047857;
+  --color-emerald-400: #059669;
+
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --border: rgba(15, 23, 42, 0.12);
+  --input: rgba(15, 23, 42, 0.15);
+
+  color-scheme: light;
 }
 
 html {
@@ -16,7 +120,7 @@ html {
 
 body {
   background: var(--bg);
-  color: #e6edf3;
+  color: var(--text);
   font-family:
     Inter,
     ui-sans-serif,
@@ -37,16 +141,8 @@ body::before {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(
-      circle at 10% 10%,
-      rgba(124, 58, 237, 0.18),
-      transparent 25%
-    ),
-    radial-gradient(
-      circle at 90% 90%,
-      rgba(236, 72, 153, 0.12),
-      transparent 25%
-    );
+    radial-gradient(circle at 10% 10%, var(--glow-1), transparent 25%),
+    radial-gradient(circle at 90% 90%, var(--glow-2), transparent 25%);
   pointer-events: none;
   z-index: -1;
 }

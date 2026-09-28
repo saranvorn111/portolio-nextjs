@@ -48,9 +48,9 @@ const itemVariants: Variants = {
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-start justify-center overflow-hidden bg-slate-950 py-24 md:items-center">
+    <section className="relative flex items-start justify-center overflow-hidden pb-16 pt-28 sm:pb-20 sm:pt-32 md:min-h-screen md:items-center md:py-24">
       <motion.div
-        className="relative container mx-auto px-6"
+        className="relative container mx-auto px-4 sm:px-6"
         variants={containerVariants}
         initial="hidden"
         animate="show"
@@ -58,35 +58,32 @@ export default function Hero() {
         <div className="mx-auto max-w-4xl text-center">
           <motion.div
             variants={itemVariants}
-            className="mb-6 mx-auto flex max-w-[90vw] items-center justify-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-2 text-center text-xs text-violet-300 backdrop-blur sm:mb-8 sm:w-fit sm:text-sm"
+            className="mx-auto mb-6 flex w-fit items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1.5 text-xs text-violet-300 backdrop-blur sm:mb-8 sm:px-4 sm:py-2 sm:text-sm"
           >
-            <span className="h-2 w-2 shrink-0 rounded-full bg-green-400 animate-pulse" />
-
-            <span className="wrap-break-word">
-              Available for Part-time Opportunities
-            </span>
+            <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-green-400" />
+            Available for Part-time Opportunities
           </motion.div>
 
           <motion.h1
             variants={itemVariants}
-            className="text-5xl font-bold leading-tight text-white md:text-6xl lg:text-7xl"
+            className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
           >
             Hi, I&apos;m{" "}
-            <span className="bg-linear-to-r from-violet-400 to-pink-500 bg-clip-text text-transparent">
+            <span className="whitespace-nowrap bg-linear-to-r from-violet-400 to-pink-500 bg-clip-text text-transparent">
               Vorn Saran
             </span>
           </motion.h1>
 
           <motion.h2
             variants={itemVariants}
-            className="mt-6 text-2xl font-semibold text-slate-300 md:text-3xl"
+            className="mt-4 text-xl font-semibold text-slate-300 sm:mt-6 sm:text-2xl md:text-3xl"
           >
             Full Stack Developer
           </motion.h2>
 
           <motion.p
             variants={itemVariants}
-            className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-slate-400"
+            className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-400 sm:mt-8 sm:text-lg sm:leading-8"
           >
             I build scalable backend applications with{" "}
             <span className="font-semibold text-white">Java Spring Boot</span>,
@@ -96,63 +93,45 @@ export default function Hero() {
 
           <motion.div
             variants={itemVariants}
-            className="mt-10 flex flex-wrap justify-center gap-4"
+            className="mx-auto mt-8 flex max-w-xs flex-col gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:justify-center"
           >
-            <motion.div
-              whileHover={{ y: -4, scale: 1.03 }}
-              whileTap={{ scale: 0.96 }}
-            >
+            <Button asChild size="lg" className="group h-11 px-6">
               <Link href="#projects">
-                <Button size="lg" className="group cursor-pointer">
-                  View Projects
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
-                </Button>
+                View Projects
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
-            </motion.div>
+            </Button>
 
-            <motion.div
-              whileHover={{ y: -4, scale: 1.03 }}
-              whileTap={{ scale: 0.96 }}
-            >
+            <Button asChild size="lg" variant="outline" className="h-11 px-6">
               <a
                 href="/vornsaran_cv.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 download
               >
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="group cursor-pointer"
-                >
-                  <Download className="mr-2 h-5 w-5 " />
-                  Download Resume
-                </Button>
+                <Download className="h-4 w-4" />
+                Download Resume
               </a>
-            </motion.div>
+            </Button>
           </motion.div>
 
-          <motion.div
+          <motion.ul
             variants={itemVariants}
-            className="mt-12 flex flex-wrap justify-center gap-3"
+            className="mt-10 flex flex-wrap justify-center gap-2 sm:mt-12 sm:gap-3"
           >
             {techStack.map((tech) => (
-              <motion.span
+              <li
                 key={tech}
-                whileHover={{
-                  scale: 1.08,
-                  y: -3,
-                }}
-                className="rounded-full border border-slate-700 bg-slate-900/70 px-4 py-2 text-sm text-slate-300 transition-colors hover:border-violet-500 hover:text-white"
+                className="rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1.5 text-xs text-slate-300 transition-colors hover:border-violet-500 hover:text-white sm:px-4 sm:py-2 sm:text-sm"
               >
                 {tech}
-              </motion.span>
+              </li>
             ))}
-          </motion.div>
+          </motion.ul>
 
           <motion.div
             variants={itemVariants}
-            className="mx-auto mt-16 grid max-w-2xl grid-cols-3 gap-8 border-t border-slate-800 pt-8"
+            className="mx-auto mt-12 grid max-w-2xl grid-cols-3 gap-4 border-t border-slate-800 pt-8 sm:mt-16 sm:gap-8"
           >
             {[
               {
@@ -168,10 +147,14 @@ export default function Hero() {
                 label: "Dedication",
               },
             ].map((stat) => (
-              <motion.div key={stat.label} whileHover={{ scale: 1.05 }}>
-                <h3 className="text-4xl font-bold text-white">{stat.value}</h3>
-                <p className="mt-2 text-slate-400">{stat.label}</p>
-              </motion.div>
+              <div key={stat.label}>
+                <p className="text-3xl font-bold text-white sm:text-4xl">
+                  {stat.value}
+                </p>
+                <p className="mt-1 text-xs text-slate-400 sm:mt-2 sm:text-base">
+                  {stat.label}
+                </p>
+              </div>
             ))}
           </motion.div>
         </div>

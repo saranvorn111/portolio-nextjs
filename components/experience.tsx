@@ -143,7 +143,7 @@ const containerVariants: Variants = {
 const cardVariants: Variants = {
   hidden: {
     opacity: 0,
-    x: -60,
+    x: -24,
   },
   show: {
     opacity: 1,
@@ -157,7 +157,7 @@ const cardVariants: Variants = {
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 sm:py-28">
+    <section id="experience" className="overflow-hidden py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
@@ -165,9 +165,9 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mb-16"
+          className="mb-10 sm:mb-16"
         >
-          <div className="mb-4 h-1 w-16 rounded-full bg-gradient-to-r from-violet-500 to-pink-500" />
+          <div className="mb-4 h-1 w-16 rounded-full bg-linear-to-r from-violet-500 to-pink-500" />
 
           <h2 className="text-3xl font-bold text-white sm:text-4xl">
             Experience & Journey
@@ -182,21 +182,21 @@ export default function Experience() {
 
         {/* Timeline */}
         <div className="relative">
-          {/* Animated Vertical Line */}
+          {/* Animated Vertical Line (centered under the 32px / 40px icons) */}
           <motion.div
             initial={{ height: 0 }}
             whileInView={{ height: "100%" }}
             viewport={{ once: true }}
             transition={{ duration: 1.5 }}
-            className="absolute left-5 top-0 w-[2px] bg-gradient-to-b from-violet-500 via-pink-500 to-cyan-500"
+            className="absolute left-[15px] top-0 w-0.5 bg-linear-to-b from-violet-500 via-pink-500 to-cyan-500 sm:left-[19px]"
           />
 
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-            className="space-y-10"
+            viewport={{ once: true, amount: 0.1 }}
+            className="space-y-6 sm:space-y-8"
           >
             {experiences.map((item) => {
               const Icon = item.icon;
@@ -205,121 +205,54 @@ export default function Experience() {
                 <motion.div
                   key={`${item.title}-${item.company}`}
                   variants={cardVariants}
-                  className="relative pl-14 sm:pl-16"
+                  className="relative pl-12 sm:pl-16"
                 >
-                  {/* Animated Icon */}
-                  <motion.div
-                    animate={{
-                      y: [0, -5, 0],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className="
-                      absolute
-                      left-0
-                      top-0
-                      flex
-                      h-10
-                      w-10
-                      sm:h-12
-                      sm:w-12
-                      items-center
-                      justify-center
-                      rounded-xl
-                      border
-                      border-slate-700
-                      bg-slate-950
-                      text-violet-400
-                    "
-                  >
-                    <Icon size={20} />
-                  </motion.div>
+                  {/* Icon */}
+                  <div className="absolute left-0 top-4 flex h-8 w-8 items-center justify-center rounded-lg border border-slate-700 bg-slate-950 text-violet-400 sm:top-6 sm:h-10 sm:w-10 sm:rounded-xl">
+                    <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
+                  </div>
 
                   {/* Card */}
-                  <motion.div
-                    whileHover={{
-                      y: -8,
-                      scale: 1.01,
-                      boxShadow: "0 0 35px rgba(139,92,246,0.15)",
-                    }}
-                    transition={{ duration: 0.2 }}
-                    className="
-                      rounded-2xl
-                      border
-                      border-slate-800
-                      bg-slate-900/50
-                      backdrop-blur-sm
-                      p-5
-                      sm:p-6
-                    "
-                  >
-                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                      <div>
-                        <p className="text-sm text-violet-400">{item.type}</p>
+                  <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-4 backdrop-blur-sm transition-all duration-300 hover:border-violet-500/30 hover:shadow-[0_0_35px_rgba(139,92,246,0.12)] sm:p-6">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <p className="text-xs font-medium uppercase tracking-wider text-violet-400 sm:text-sm sm:normal-case sm:tracking-normal">
+                        {item.type}
+                      </p>
 
-                        <h3 className="mt-1 text-xl font-semibold text-white">
-                          {item.title}
-                        </h3>
-
-                        <a
-                          href={item.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="
-                            mt-1
-                            inline-block
-                            text-slate-400
-                            transition-all
-                            duration-300
-                            hover:text-violet-400
-                            hover:underline
-                          "
-                        >
-                          {item.company}
-                        </a>
-                      </div>
-
-                      <span className="text-sm text-slate-500">
-                        {item.period}
+                      <span className="rounded-full border border-slate-800 px-2.5 py-0.5 text-xs text-slate-500 sm:text-sm">
+                        {item.period.trim()}
                       </span>
                     </div>
 
-                    <p className="mt-4 leading-7 text-slate-300">
+                    <h3 className="mt-2 text-lg font-semibold text-white sm:text-xl">
+                      {item.title}
+                    </h3>
+
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-0.5 inline-block text-sm text-slate-400 transition-colors hover:text-violet-400 hover:underline sm:text-base"
+                    >
+                      {item.company}
+                    </a>
+
+                    <p className="mt-3 text-sm leading-6 text-slate-300 sm:mt-4 sm:text-base sm:leading-7">
                       {item.description}
                     </p>
 
                     {/* Skills */}
-                    <div className="mt-5 flex flex-wrap gap-2">
+                    <ul className="mt-4 flex flex-wrap gap-1.5 sm:mt-5 sm:gap-2">
                       {item.skills.map((skill) => (
-                        <motion.span
+                        <li
                           key={skill}
-                          whileHover={{
-                            scale: 1.08,
-                            borderColor: "#8b5cf6",
-                            backgroundColor: "#1e1b4b",
-                          }}
-                          whileTap={{ scale: 0.95 }}
-                          className="
-                            cursor-pointer
-                            rounded-full
-                            border
-                            border-slate-700
-                            bg-slate-950
-                            px-3
-                            py-1
-                            text-xs
-                            text-slate-300
-                            transition-all
-                          "
+                          className="rounded-full border border-slate-700 bg-slate-950 px-2.5 py-0.5 text-[11px] text-slate-300 transition-colors hover:border-violet-500/60 sm:px-3 sm:py-1 sm:text-xs"
                         >
                           {skill}
-                        </motion.span>
+                        </li>
                       ))}
-                    </div>
-                  </motion.div>
+                    </ul>
+                  </div>
                 </motion.div>
               );
             })}
