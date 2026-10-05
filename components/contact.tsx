@@ -13,7 +13,9 @@ import {
 } from "lucide-react";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 
-const email = "Saranvorn529@gmail.com";
+import { site } from "@/data/site";
+
+const { email } = site;
 
 const channels = [
   {
@@ -26,18 +28,18 @@ const channels = [
     icon: <FiLinkedin size={18} />,
     label: "LinkedIn",
     value: "in/vorn-saran",
-    href: "https://www.linkedin.com/in/vorn-saran-911485300/",
+    href: site.socials.linkedin,
   },
   {
     icon: <FiGithub size={18} />,
     label: "GitHub",
     value: "saranvorn111",
-    href: "https://github.com/saranvorn111",
+    href: site.socials.github,
   },
   {
     icon: <MapPin size={18} />,
     label: "Location",
-    value: "Cambodia",
+    value: site.location,
   },
 ];
 
@@ -113,7 +115,7 @@ export default function Contact() {
                   </a>
 
                   <a
-                    href="/vornsaran_cv.pdf"
+                    href={site.cv}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/10 px-5 py-3 text-sm font-medium text-slate-200 transition-colors hover:border-violet-500/60 hover:text-white"

@@ -5,6 +5,7 @@ import { ArrowRight, Download } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
+import { site } from "@/data/site";
 
 const techStack = [
   "Java",
@@ -104,7 +105,7 @@ export default function Hero() {
 
             <Button asChild size="lg" variant="outline" className="h-11 px-6">
               <a
-                href="/vornsaran_cv.pdf"
+                href={site.cv}
                 target="_blank"
                 rel="noopener noreferrer"
                 download

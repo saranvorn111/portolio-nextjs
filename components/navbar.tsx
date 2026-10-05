@@ -16,14 +16,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/theme-toggle";
-
-const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
+import { navItems, site } from "@/data/site";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -56,7 +49,7 @@ export default function Navbar() {
 
             <Button variant="outline" asChild>
               <a
-                href="https://github.com/saranvorn111"
+                href={site.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -67,7 +60,7 @@ export default function Navbar() {
 
             <Button asChild>
               <a
-                href="/vornsaran_cv.pdf"
+                href={site.cv}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -125,7 +118,7 @@ export default function Navbar() {
                     asChild
                   >
                     <a
-                      href="https://github.com/saranvorn111"
+                      href={site.socials.github}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -135,7 +128,7 @@ export default function Navbar() {
                   </Button>
 
                   <Button className="w-full justify-center" asChild>
-                    <a href="/vornsaran_cv.pdf" download>
+                    <a href={site.cv} download>
                       <FileText className="mr-2 h-5 w-5" />
                       Download Resume
                     </a>

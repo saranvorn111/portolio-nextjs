@@ -4,35 +4,17 @@ import Link from "next/link";
 import { ArrowUp, Mail } from "lucide-react";
 import { FiFacebook, FiGithub, FiLinkedin } from "react-icons/fi";
 
-const navigation = [
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-];
+import { navItems, site } from "@/data/site";
 
 const resources = [
-  { name: "Download CV", href: "/vornsaran_cv.pdf", external: true },
-  { name: "Email Me", href: "mailto:Saranvorn529@gmail.com" },
+  { name: "Download CV", href: site.cv, external: true },
+  { name: "Email Me", href: `mailto:${site.email}` },
 ];
 
 const socials = [
-  {
-    name: "GitHub",
-    href: "https://github.com/saranvorn111",
-    icon: FiGithub,
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/vorn-saran-911485300/",
-    icon: FiLinkedin,
-  },
-  {
-    name: "Facebook",
-    href: "https://web.facebook.com/vorn.saran.14",
-    icon: FiFacebook,
-  },
+  { name: "GitHub", href: site.socials.github, icon: FiGithub },
+  { name: "LinkedIn", href: site.socials.linkedin, icon: FiLinkedin },
+  { name: "Facebook", href: site.socials.facebook, icon: FiFacebook },
 ];
 
 export default function Footer() {
@@ -71,13 +53,13 @@ export default function Footer() {
               Navigation
             </h4>
             <ul className="mt-4 space-y-3">
-              {navigation.map((item) => (
-                <li key={item.name}>
+              {navItems.map((item) => (
+                <li key={item.label}>
                   <Link
                     href={item.href}
                     className="text-sm text-slate-400 transition-colors hover:text-white"
                   >
-                    {item.name}
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -129,11 +111,11 @@ export default function Footer() {
             </div>
 
             <a
-              href="mailto:Saranvorn529@gmail.com"
+              href={`mailto:${site.email}`}
               className="mt-4 inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
             >
               <Mail size={14} />
-              Saranvorn529@gmail.com
+              {site.email}
             </a>
           </div>
         </div>
